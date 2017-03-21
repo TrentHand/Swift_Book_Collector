@@ -88,7 +88,10 @@ class BookViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
-
+    //letting the phone take photos when the camera button is tapped
     @IBAction func cameraTapped(_ sender: Any) {
+        imagePicker.sourceType = .camera
+        
+        present(imagePicker, animated: true, completion: nil)
     }
 }
