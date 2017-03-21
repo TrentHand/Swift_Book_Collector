@@ -28,8 +28,8 @@
                                     <constraint firstAttribute="height" constant="280" id="Sfb-ov-bOB"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6y-r5-qPT">
-                                <rect key="frame" x="173" y="429" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6y-r5-qPT">
+                                <rect key="frame" x="173" y="304" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addTapped:" destination="FDn-Bg-lE0" eventType="touchUpInside" id="3Eb-aj-xdu"/>
@@ -44,8 +44,16 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="u8q-O2-wQI"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hw9-Ln-CTp">
-                                <rect key="frame" x="47" y="379" width="280" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gW-9o-sAy">
+                                <rect key="frame" x="165" y="344" width="45" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="FDn-Bg-lE0" eventType="touchUpInside" id="cgU-2w-YEI"/>
+                                    <action selector="deleteTapped:" destination="FDn-Bg-lE0" eventType="touchUpInside" id="dEP-0Y-uiP"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hw9-Ln-CTp">
+                                <rect key="frame" x="48" y="254" width="280" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -55,8 +63,11 @@
                         <constraints>
                             <constraint firstItem="04d-UZ-Dic" firstAttribute="top" secondItem="csk-Tl-NzG" secondAttribute="bottom" constant="20" id="AFs-Ca-6bb"/>
                             <constraint firstItem="hw9-Ln-CTp" firstAttribute="top" secondItem="04d-UZ-Dic" secondAttribute="bottom" constant="20" id="Rr3-FM-pmb"/>
+                            <constraint firstItem="3gW-9o-sAy" firstAttribute="top" secondItem="W6y-r5-qPT" secondAttribute="bottom" constant="10" id="RuU-vd-9pG"/>
                             <constraint firstItem="W6y-r5-qPT" firstAttribute="centerX" secondItem="ztF-UC-P0g" secondAttribute="centerX" id="Sxm-RN-9FK"/>
+                            <constraint firstItem="3gW-9o-sAy" firstAttribute="centerX" secondItem="ztF-UC-P0g" secondAttribute="centerX" id="Ucr-aY-den"/>
                             <constraint firstItem="hw9-Ln-CTp" firstAttribute="centerX" secondItem="ztF-UC-P0g" secondAttribute="centerX" id="aHO-xZ-Vcm"/>
+                            <constraint firstItem="hw9-Ln-CTp" firstAttribute="top" secondItem="04d-UZ-Dic" secondAttribute="bottom" constant="20" id="efo-4Q-v89"/>
                             <constraint firstItem="W6y-r5-qPT" firstAttribute="top" secondItem="hw9-Ln-CTp" secondAttribute="bottom" constant="20" id="jRu-ZD-UD9"/>
                             <constraint firstItem="04d-UZ-Dic" firstAttribute="centerX" secondItem="ztF-UC-P0g" secondAttribute="centerX" id="nBQ-ga-nVb"/>
                             <constraint firstItem="hw9-Ln-CTp" firstAttribute="width" secondItem="04d-UZ-Dic" secondAttribute="width" id="rb7-AS-tfq"/>
@@ -77,7 +88,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addUpdateButton" destination="W6y-r5-qPT" id="xUL-mE-xJ2"/>
                         <outlet property="bookImageView" destination="04d-UZ-Dic" id="JaJ-Ia-R4q"/>
+                        <outlet property="deleteButton" destination="3gW-9o-sAy" id="yy7-vn-KzZ"/>
                         <outlet property="titleTextField" destination="hw9-Ln-CTp" id="LqO-xC-8fO"/>
                     </connections>
                 </viewController>
@@ -114,7 +127,7 @@
                     <navigationItem key="navigationItem" id="pMA-mk-7Iz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sFX-yb-2sB">
                             <connections>
-                                <segue destination="FDn-Bg-lE0" kind="show" id="gYD-rq-UUr"/>
+                                <segue destination="FDn-Bg-lE0" kind="show" identifier="bookSegue" id="gYD-rq-UUr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
