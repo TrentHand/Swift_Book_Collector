@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class BookViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -25,15 +26,16 @@ class BookViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
 
     @IBAction func addTapped(_ sender: Any) {
-        
+        //saves the book into the CoreData Entity
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
+        //creates the title and image attributes from the user inputs
         let book = Book(context: context)
         book.title = titleTextField.text
         book.image = UIImagePNGRepresentation(bookImageView.image!) as NSData?
-        
+        //saves the new book in our array
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        
+        //returns us to the main ViewController after the new book is saved
+        navigationController!.popViewController(animated: true)
     }
     
     @IBAction func photosTapped(_ sender: Any) {
