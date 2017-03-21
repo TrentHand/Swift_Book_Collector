@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera permission is needed in order to let you take photos with your phone of the books you own.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to existing photos of books in order to use them in the app.  Otherwise, you&apos;ll need to take a new photo everytime you add a book.</string>
 	<key>CFBundleDevelopmentRegion</key>
